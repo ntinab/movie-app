@@ -1,8 +1,8 @@
 import { BookOutlined, CloseOutlined, EyeOutlined, HeartFilled, HeartOutlined, PlusOutlined } from '@ant-design/icons'
+import { Card, Modal, Tag, message, Button, Input, Select } from 'antd'
 import { setFavourites, setWatchlist } from '../redux/reducer'
 import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Card, Modal, Tag, message } from 'antd'
 import { toast } from 'react-toastify'
 import { MoviesModel } from '../data'
 import moment from 'moment'
@@ -290,11 +290,80 @@ const MovieCard = ({ movie }) => {
       <Modal
         open={ticketModal}
         footer={null}
+        width={1000}
         onCancel={() => {
           setTicketModal(false);
         }}
       >
-        {/* add ticket modal  */}
+        {movie && (
+          <div className="movie-page-container">
+            <div className="movie-page-title">
+              <h1>{movie.title}</h1>
+            </div>
+            <div style={{ position: "relative", display: "inline-block" }}>    
+            <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                alt="Movie"
+                style={{ width: "560px", height: "315px" }}    
+            />        
+            </div>
+            <p>
+              <b>Runtime: </b>
+              {`${Math.floor(movieRuntime / 60)}h ${movieRuntime % 60}m`}
+            </p>
+            <p>
+              <b>Price:</b> 11$
+            </p>
+            <p>
+              <b>Available Screenings: </b>
+              {/* get movie screenings from back end  */}
+              <Select
+              placeholder="Select a screening"
+              // optionFilterProp="children"
+              // onChange={onChange}
+              options={[
+                {
+                  value: 'screening 1',
+                  label: 'Screening 1',
+                },
+                {
+                  value: 'screening 2',
+                  label: 'Screening 2',
+                },
+                {
+                value: 'screening 3',
+                label: 'Screening 3',
+                },
+                {
+                  value: 'screening 4',
+                  label: 'Screening 4',
+                },
+                {
+                  value: 'screening 5',
+                  label: 'Screening 5',
+                },
+                {
+                  value: 'screening 6',
+                  label: 'Screening 6',
+                },
+                {
+                  value: 'screening 7',
+                  label: 'Screening 7',
+                },
+              ]}
+              />
+            </p>
+            <Input
+            placeholder="Type your E-mail Address here"
+            // width 
+            >
+            {/* send this email with the user uid to back end */}
+            </Input>
+            <Button type="text" style={{marginTop: '17px', backgroundColor: 'black', color: 'white'}}>
+              Book Ticket 
+              {/* function book ticket; */}
+            </Button>
+          </div>
+        )}
       </Modal>
     </>
   );

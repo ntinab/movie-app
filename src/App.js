@@ -2,6 +2,7 @@ import { DownOutlined, SortAscendingOutlined, SortDescendingOutlined, FilterFill
 import { Drawer, Dropdown, Input, Layout, Pagination, Row, Select, Space, message, Button, Popconfirm } from 'antd'
 import { setFilters, setMoviesListRDX, setPage, setSearchInput, setTotalItems, setUserRDX } from './redux/reducer'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import MoviesUploader from './components/MoviesUploader'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -17,6 +18,7 @@ import './style.css'
 const { Header, Footer, Content } = Layout;
 
 function App() {
+
   const { bearerAccessToken, page, totalItems, genres, filters } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -77,6 +79,7 @@ function App() {
 
   return (
     <>
+      <MoviesUploader/>
       <ToastContainer
         position="bottom-center"
         autoClose={2000}

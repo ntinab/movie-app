@@ -7,6 +7,7 @@ const initialState = {
   totalItems: [],
   favourites: [],
   watchlist: [], 
+  tickets: [],
   searchInput: "",
   filters: null,
   userRDX: null,
@@ -35,6 +36,9 @@ export const stateSlice = createSlice({
     setWatchlist: (state, { payload }) => {
       state.watchlist = payload; 
     },
+    setTickets: (state, { payload }) => {
+      state.tickets = payload;
+    },
     setSearchInput: (state, { payload }) => {
       state.searchInput = payload;
     },
@@ -51,5 +55,5 @@ export const stateSlice = createSlice({
 });
 
 
-export const { setMoviesListRDX, setBearerAccessToken, setGenres, setPage, setTotalItems, setFavourites, setWatchlist, setSearchInput, setFilters, setUserRDX } = stateSlice.actions;
+export const { setMoviesListRDX, setBearerAccessToken, setGenres, setPage, setTotalItems, setFavourites, setWatchlist, setTickets, setSearchInput, setFilters, setUserRDX } = stateSlice.actions;
 export default stateSlice.reducer;

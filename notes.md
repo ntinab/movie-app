@@ -11,6 +11,7 @@ The TMDB API (The Movie Database) offers a vast collection of movie information.
 You can search for movies, retrieve details, and fetch ratings using this API.
 
 
+- npm i cors
 - npm i antd
 - npm i axios
 - npm i firebase
@@ -46,8 +47,13 @@ You can search for movies, retrieve details, and fetch ratings using this API.
 
 !
 
-- book ticket modal !
+- movies model !
+
+- ticket modal !
 - tickets view !
+
+- set tickets in redux ?
+- display tickets as movies ?
 
 - drawers !
 - notifications !

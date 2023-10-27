@@ -1,13 +1,13 @@
 import { setMoviesListRDX, setTotalItems } from '../redux/reducer'
 import { FloatButton, Row, Spin, message } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
-import React, { useState, useEffect } from 'react'
 import { ArrowUpOutlined } from '@ant-design/icons'
+import React, { useState, useEffect } from 'react'
 import MovieCard from '../components/MovieCard'
 import { MoviesModel } from '../data'
 
 const MoviesList = () => {
-  const { bearerAccessToken, page, moviesListRDX, favourites, watchlist, searchInput } = useSelector((state) => state);
+  const { bearerAccessToken, page, moviesListRDX, favourites, watchlist, tickets, searchInput } = useSelector((state) => state);
 
   const [header, setHeader] = useState("");
 
@@ -74,6 +74,10 @@ const MoviesList = () => {
         dispatch(setMoviesListRDX(watchlist));
         // total items
         setHeader("My Watchlist");
+      } else if (pathName.includes("tickets")) {
+        dispatch(setMoviesListRDX(tickets));
+        // total items
+        setHeader("My Tickets");
       }
     } else {
       MoviesModel.searchMovie(bearerAccessToken, searchInput, page)
@@ -83,7 +87,7 @@ const MoviesList = () => {
         })
         .catch((err) => message.error(err.message));
     }
-  }, [pathName, page, favourites, watchlist, searchInput]);
+  }, [pathName, page, favourites, watchlist, tickets, searchInput]);
 
   return moviesListRDX && moviesListRDX.length > 0 ? (
     <>
