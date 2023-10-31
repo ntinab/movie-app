@@ -15,72 +15,51 @@ You can search for movies, retrieve details, and fetch ratings using this API.
 - npm i antd
 - npm i axios
 - npm i firebase
-- npm i react-query
 - npm i @reduxjs/toolkit
 - npm i @ant-design/icons
 - npm i redux-persist
 - npm i react-toastify
 - npm i react-firebase-hooks
-- npm i react-query-devtools -
 
-
-.
-
-- css !
-  
-- cards !
-- header !
-  
-- menu !
-- movies app left !
-- add home icon in menu !
-- change dropdown icon !
-- color in selected menu item !
-
-- breadcrumbs | filters | sort by below header !
-
-- search input width | height & icon !
-
-- pagination color !
-- float button !
 
 
 !
 
-- movies model !
-
-- ticket modal !
-- tickets view !
-
-- set tickets in redux ?
-- display tickets as movies ?
-
-- drawers !
-- notifications !
+- toast info ?
   
 - trailers !
   
-- comments !
+- notifications !
   
-- clone !
+- filters & sort by : 2 icons !
+  
 - delete cinema !
+  
+- github !
 
 
 ?
+ 
+- menu !
+  
+- change dropdown icon ?
+
+- pagination color !
+  
+- color in selected menu item !
 
 - footer ?
 - error page ?
-
-- sort by title x2 ?
-
-- movieslist -> movies !  
-- setmovieslistrdx -> setmoviesrdx !
-
-- filters & sort by : 2 icons !
+  
+- breadcrumbs !
+  
+- sort by title x2 !
   
 - pagination in favourites & watchlist !
-  
-- breadcrumbs & separator & hover color !
+
+- screenings & tickets !
+- screenings not being populated as supposed to !
+- send email with ticket information : movie tile & image | date & time of the selected screening | seat | price | runtime | barcode !
 
 
 
@@ -205,12 +184,3 @@ const items = [
    const onMenuClick = ({ item }) => {
     dispatch(setResetPage(true));
   };
-  
-
-// movieCard.js
-
-if (movie.genres && movie.genres.length > 0) {
-    var firstTwoGenres = movie.genres.slice(0, 2).map((genre) => genre.name);
-  } else {
-    firstTwoGenres = movie.genre_ids.slice(0, 2).map((genreId) => genres.find((genre) => genre.id === genreId)?.name);
-}

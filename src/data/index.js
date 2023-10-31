@@ -60,8 +60,8 @@ export const MoviesModel = {
     }),
 
   getMovieScreenings: (id) =>
-    axios.get(`https://api.themoviedb.org/3/movies/${id}/screenings`),
+    axios.get(`https://localhost:7195/movies/${id}/screenings`),
 
-  getTickets: () =>
-  axios.get(`https://api.themoviedb.org/3/tickets`)
+  bookTicket: (screeningId) =>
+    axios.post(`https://localhost:7195/screenings/${screeningId}/tickets`, {screeningId})
 };
